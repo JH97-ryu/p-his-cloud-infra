@@ -23,14 +23,14 @@ resource "aws_iam_role" "github_actions" {
         "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
       }
       StringLike = {
-        "token.actions.githubusercontent.com:sub" = "repo:JH97-ryu/p-his-cloud-infra:*"
+        "token.actions.githubusercontent.com:sub" = "repo:jh97-ryu/p-his-cloud-infra:*"
       }
     }
       }
     ]
   })
 }
-
+ 
 # 3. 봇에게 최고 관리자 권한 부여 (인프라 생성용)
 resource "aws_iam_role_policy_attachment" "github_actions_admin" {
   role       = aws_iam_role.github_actions.name
