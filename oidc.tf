@@ -18,16 +18,14 @@ resource "aws_iam_role" "github_actions" {
         Principal = {
           Federated = aws_iam_openid_connect_provider.github.arn
         }
-        Condition = {
-          StringEquals = {
-            "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
-          }
-          StringLike = {
-            # ★ 아주 중요: 본인의 GitHub 아이디와 저장소 이름으로 반드시 바꿔주세요!
-            # 예시: "repo:MyID/p-his-infra:*"
-            "token.actions.githubusercontent.com:sub" = "repo:JH97-ryu/p-his-cloud-infra:*"
-          }
-        }
+       Condition = {
+      StringEquals = {
+        "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
+      }
+      StringLike = {
+        "token.actions.githubusercontent.com:sub" = "repo:JH97-ryu/p-his-cloud-infra:*"
+      }
+    }
       }
     ]
   })
