@@ -40,4 +40,4 @@ resource "aws_iam_role_policy_attachment" "github_actions_admin" {
 # 4. 완료 후 봇의 신분증 번호(ARN) 출력
 output "github_actions_role_arn" {
   value = aws_iam_role.github_actions.arn
-}
+} 
